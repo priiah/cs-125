@@ -1,0 +1,7 @@
+{
+  "name": "Walk It Off!",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
