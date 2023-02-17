@@ -1,3 +1,4 @@
+<div>
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -5,9 +6,36 @@
     </ion-title>
   </ion-toolbar>
 </ion-header>
-
-<ion-content>
-  
-
-  <app-explore-container name="Tab 4 page"></app-explore-container>
-</ion-content>
+<ion-item>
+  <ion-label>Age:</ion-label>
+  <ion-input placeholder="21"></ion-input>
+</ion-item>
+<ion-item>
+  <ion-label>Sex:</ion-label>
+  <ion-input placeholder="Male/Female/Other"></ion-input>
+</ion-item>
+<ion-list>
+  <ion-item>
+    <ion-label>Activity Level</ion-label>
+    <ion-select interface="popover" placeholder="Activity Level">
+      <ion-select-option value="little">Little</ion-select-option>
+      <ion-select-option value="moderate">Moderate</ion-select-option>
+      <ion-select-option value="active">Active</ion-select-option>
+      <ion-select-option value="veryActive">Very Active</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<ion-item>
+  <ion-label>Step Goal:</ion-label>
+  <ion-input placeholder="1000"></ion-input>
+</ion-item>
+<ion-list>
+  <ion-item>
+    <ion-label>Navigation</ion-label>
+    <ion-select interface="popover" placeholder="Navigation App">
+      <ion-select-option value="googleMaps">Google Maps</ion-select-option>
+      <ion-select-option value="appleMaps">Apple Maps</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+</div>

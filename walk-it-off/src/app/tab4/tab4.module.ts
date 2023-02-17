@@ -17,4 +17,11 @@ import { Tab4PageRoutingModule } from './tab4-routing.module';
   ],
   declarations: [Tab4Page]
 })
-export class Tab4PageModule {}
+export class Tab4PageModule {
+
+  customPopoverOptions = {
+    header: 'Activity Level',
+    subHeader: 'Select desired activity level',
+    message: 'Only select your desired activity level',
+  };
+}
