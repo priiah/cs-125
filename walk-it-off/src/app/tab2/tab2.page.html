@@ -8,16 +8,25 @@
 
 <ion-content>
   <ion-item>
-    <ion-checkbox slot="start"></ion-checkbox>
     <ion-label>Smart Parameters</ion-label>
+    <ion-select #smart (ionChange)="save(smart.value, 'smart')" interface = "popover" [placeholder]="place('smart')" v-bind:key="smart">
+      <ion-select-option value="Off">Off</ion-select-option>
+      <ion-select-option value="On">On</ion-select-option>
+    </ion-select>
   </ion-item>
   <ion-item>
-    <ion-checkbox slot="start"></ion-checkbox>
     <ion-label>Challenge Days</ion-label>
+    <ion-select #challenge (ionChange)="save(challenge.value, 'challenge')" interface = "popover" [placeholder]="place('challenge')" v-bind:key="challenge">
+      <ion-select-option value="Off">Off</ion-select-option>
+      <ion-select-option value="On">On</ion-select-option>
+    </ion-select>
   </ion-item>
   <ion-item>
-    <ion-checkbox slot="start"></ion-checkbox>
     <ion-label>Manual Parameters</ion-label>
+    <ion-select #manual (ionChange)="save(manual.value, 'manual')" interface = "popover" [placeholder]="place('manual')" v-bind:key="manual">
+      <ion-select-option value="Off">Off</ion-select-option>
+      <ion-select-option value="On">On</ion-select-option>
+    </ion-select>
   </ion-item>
 
 </ion-content>

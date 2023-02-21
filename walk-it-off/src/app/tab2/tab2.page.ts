@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,20 @@ import { Component } from '@angular/core';
 })
 export class Tab2Page {
 
-  constructor() {}
+  constructor(public storage:Storage) {}
 
+  resetSettings(){
+    localStorage.setItem("smart", "Off");
+    localStorage.setItem("challenge", "Off");
+    localStorage.setItem("manual", "Off");
+  };
+
+  place(key:string){
+    return localStorage.getItem(key)
+  }
+
+  save(value : string, key :string){
+    console.log(value);
+    const selected = localStorage.setItem(key, value);
+  }
 }
