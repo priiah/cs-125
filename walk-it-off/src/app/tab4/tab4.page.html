@@ -7,8 +7,8 @@
   </ion-toolbar>
 </ion-header>
 <ion-item>
-  <ion-label>Age:</ion-label>
-  <ion-input placeholder="21"></ion-input>
+  <ion-label>Age: {{place('age')}}</ion-label>
+  <ion-range #age (ionChange)="save(age.value.toString(), 'age')"[value]="0" [pin]="true" v-bind:key="age"></ion-range>
 </ion-item>
 <ion-item>
   <ion-label>Sex:</ion-label>
@@ -30,9 +30,13 @@
   </ion-item>
 </ion-list>
 <ion-item>
-  <ion-label>Step Goal:</ion-label>
-  <ion-input placeholder="1000"></ion-input>
+  <ion-label>Step Goal: {{place('step')}}</ion-label>
 </ion-item>
+<ion-item>
+  <ion-range #step (ionChange)="saveNum(step.value.toString(), 'step')" [min]="1" [max]="10" [ticks]="true" [snaps]="true" [value]="1" [pin]="true" v-bind:key="step"></ion-range>
+</ion-item>
+  
+
 <ion-list>
   <ion-item>
     <ion-label>Navigation</ion-label>

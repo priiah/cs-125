@@ -9,8 +9,7 @@ import { Storage } from '@ionic/storage-angular';
 export class Tab4Page {
 
   constructor(public storage:Storage) {
-    
-    
+      
   }
 
   setData(){
@@ -21,6 +20,8 @@ export class Tab4Page {
     localStorage.setItem("gender", "Select Gender");
     localStorage.setItem("activity", "Activity Level");
     localStorage.setItem("nav", "Navigation App");
+    localStorage.setItem("age", "0");
+    localStorage.setItem("step", "None");
   };
 
   place(key:string){
@@ -31,4 +32,12 @@ export class Tab4Page {
     console.log(value);
     const selected = localStorage.setItem(key, value);
   }
+
+  saveNum(value : string, key :string){
+    console.log(value);
+    var num = Number(value) * 1000
+    const selected = localStorage.setItem(key, num.toString());
+  }
+
+  
 }
