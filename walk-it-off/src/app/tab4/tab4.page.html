@@ -12,16 +12,20 @@
 </ion-item>
 <ion-item>
   <ion-label>Sex:</ion-label>
-  <ion-input placeholder="Male/Female/Other"></ion-input>
+  <ion-select #gender (ionChange)="save(gender.value, 'gender')" interface = "popover" [placeholder]="place('gender')" v-bind:key="gender">
+    <ion-select-option value="Male">Male</ion-select-option>
+    <ion-select-option value="Female">Female</ion-select-option>
+    <ion-select-option value="Other">Other</ion-select-option>
+  </ion-select>
 </ion-item>
 <ion-list>
   <ion-item>
     <ion-label>Activity Level</ion-label>
-    <ion-select interface="popover" placeholder="Activity Level">
-      <ion-select-option value="little">Little</ion-select-option>
-      <ion-select-option value="moderate">Moderate</ion-select-option>
-      <ion-select-option value="active">Active</ion-select-option>
-      <ion-select-option value="veryActive">Very Active</ion-select-option>
+    <ion-select #activity (ionChange)="save(activity.value, 'activity')" interface = "popover" [placeholder]="place('activity')" v-bind:key="activity">
+      <ion-select-option value="Little">Little</ion-select-option>
+      <ion-select-option value="Moderate">Moderate</ion-select-option>
+      <ion-select-option value="Active">Active</ion-select-option>
+      <ion-select-option value="Very Active">Very Active</ion-select-option>
     </ion-select>
   </ion-item>
 </ion-list>
@@ -32,10 +36,20 @@
 <ion-list>
   <ion-item>
     <ion-label>Navigation</ion-label>
-    <ion-select interface="popover" placeholder="Navigation App">
-      <ion-select-option value="googleMaps">Google Maps</ion-select-option>
-      <ion-select-option value="appleMaps">Apple Maps</ion-select-option>
+    <ion-select #nav (ionChange)="save(nav.value, 'nav')" interface="popover" [placeholder]="place('nav')" v-bind:key="nav">
+      <ion-select-option value="Google Maps">Google Maps</ion-select-option>
+      <ion-select-option value="Apple Maps">Apple Maps</ion-select-option>
     </ion-select>
   </ion-item>
 </ion-list>
+<ion-grid>
+  <ion-row class="ion-align-items-center">
+    <ion-col size="12" class="ion-text-center">
+      <button ion-button (click)="resetSettings()"> Reset Settings </button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+
+
+  
 </div>
