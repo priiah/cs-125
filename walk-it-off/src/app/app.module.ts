@@ -3,8 +3,6 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 
-import { NgCircleProgressModule } from 'ng-circle-progress';
-
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppRoutingModule } from './app-routing.module';
