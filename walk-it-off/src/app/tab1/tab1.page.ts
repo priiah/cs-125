@@ -1,18 +1,41 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import { Tab4Page } from 'src/app/tab4/tab4.page';
+import { Geolocation } from '@capacitor/geolocation';
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page extends Tab4Page{
+export class Tab1Page extends Tab4Page implements OnInit{
 
   constructor() {
     super(Tab4Page.constructor());
     localStorage.setItem("steps_walked", "0");
   }
+
+  ngOnInit() {
+    const printCurrentPosition = async () => {
+      const coordinates = await Geolocation.getCurrentPosition();
+      console.log('Current position:', coordinates);
+      return coordinates;
+    };
+
+    let latitude, longitude;
+    printCurrentPosition().then((coords) => {
+      latitude = coords.coords.latitude;
+      longitude = coords.coords.longitude;
+
+      localStorage.setItem("latitude", latitude.toString());
+      localStorage.setItem("longitude", longitude.toString());
+      //console.log(latitude);
+    }).then(() => {
+      //console.log(localStorage.getItem("latitude"));
+      //console.log(localStorage.getItem("longitude"));
+    });
+  }
+
   display(key:string){
     if (key == "step"){
       if (localStorage.getItem(key) == "None"){
@@ -79,12 +102,12 @@ export class Tab1Page extends Tab4Page{
       else {
         return 0;
       }
-      
+
     }
     else {
       return localStorage.getItem(key);
     }
-    
+
   }
 
 }
