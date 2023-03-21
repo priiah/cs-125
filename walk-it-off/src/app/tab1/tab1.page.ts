@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import { Storage } from '@ionic/storage-angular';
 import { Tab4Page } from 'src/app/tab4/tab4.page';
 import { Geolocation } from '@capacitor/geolocation';
+import {HikesService} from "../hikes.service";
 
 @Component({
   selector: 'app-tab1',
@@ -9,8 +10,12 @@ import { Geolocation } from '@capacitor/geolocation';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page extends Tab4Page implements OnInit{
+  recommendedHikes = [{trail: { distance: 3, elevationGain: 120, difficulty: 1, name: 0 }, score: 0},
+    {trail: { distance: 5.2, elevationGain: 460, difficulty: 2, name: 2 }, score: 0}];
+  recommendedHikeNames = ["Upper Newport Bay Nature Preserve Hike",
+    "Buck Gully Trail"]
 
-  constructor() {
+  constructor(public hikesService:HikesService) {
     super(Tab4Page.constructor());
     localStorage.setItem("steps_walked", "0");
   }
@@ -34,6 +39,12 @@ export class Tab1Page extends Tab4Page implements OnInit{
       //console.log(localStorage.getItem("latitude"));
       //console.log(localStorage.getItem("longitude"));
     });
+
+    this.recommendedHikes = this.hikesService.recommendHikes().slice(0,2);
+    this.recommendedHikeNames = [HikesService.trailNames[this.recommendedHikes[0].trail.name],
+                                  HikesService.trailNames[this.recommendedHikes[1].trail.name]];
+    //console.log(this.recommendedHikes);
+
   }
 
   display(key:string){
